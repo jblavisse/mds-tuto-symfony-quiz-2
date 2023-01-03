@@ -7,7 +7,7 @@
 
 
 {% for quiz in category.quizzes %}
- {{quiz.title}}
+ <a href="{{ path("quiz_details", {id: quiz.id})}}">{{quiz.title}}</a>
 {% endfor %}
 
 {% endblock %}

@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class QuizController extends AbstractController
 {
-    #[Route('/quizzes/{id}', name: 'app_quiz')]
+    #[Route('/quizzes/{id}', name: 'quiz_details')]
     public function index(ManagerRegistry $doctrine,int $id): Response
     {
         $quizRepository = $doctrine->getRepository(Quiz::class);
