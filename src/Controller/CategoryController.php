@@ -11,7 +11,7 @@ use App\Entity\Category;
 
 class CategoryController extends AbstractController
 {
-    #[Route('/categories', name: 'app_category')]
+    #[Route('/categories', name: 'category_list')]
     public function index(ManagerRegistry $doctrine): Response
     {
         $categoryRepository = $doctrine->getRepository(Category::class);
@@ -23,7 +23,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/categories/{id}', name: 'app_category')]
+    #[Route('/categories/{id}', name: 'category_details')]
     public function single(ManagerRegistry $doctrine,int $id): Response
     {
         $categoryRepository = $doctrine->getRepository(Category::class);
