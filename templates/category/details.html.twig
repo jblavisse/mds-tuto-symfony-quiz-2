@@ -5,4 +5,9 @@
 {% block body %}
 <h1>{{category.title}}</h1>
 
+
+{% for quiz in category.quizzes %}
+ {{quiz.title}}
+{% endfor %}
+
 {% endblock %}
