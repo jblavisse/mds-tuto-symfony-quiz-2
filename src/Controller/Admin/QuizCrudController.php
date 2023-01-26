@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class QuizCrudController extends AbstractCrudController
 {
@@ -19,7 +20,10 @@ class QuizCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            AssociationField::new('category')
+            AssociationField::new('category'),
+            ImageField::new('img')
+                ->setUploadDir('public/uploads/img/')
+                ->setBasePath('uploads/img/')
         ];
     }
 }
