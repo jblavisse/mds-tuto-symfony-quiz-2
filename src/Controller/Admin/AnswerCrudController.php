@@ -6,6 +6,10 @@ use App\Entity\Answer;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+
 class AnswerCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -19,14 +23,12 @@ class AnswerCrudController extends AbstractCrudController
         ->setEntityLabelInPlural('Réponses');
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('content'),
+            BooleanField::new('isCorrect'),
+            AssociationField::new('question')
         ];
     }
-    */
 }
