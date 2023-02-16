@@ -12,7 +12,7 @@ use App\Entity\Category;
 use App\Entity\Quiz;
 use App\Entity\Question;
 use App\Entity\Answer;
-
+use App\Entity\User;
 
 
 class AdminDashboardController extends AbstractDashboardController
@@ -36,5 +36,6 @@ class AdminDashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Quizs', 'fa fa-circle-question', Quiz::class);
         yield MenuItem::linkToCrud('Questions','fa fa-question', Question::class);
         yield MenuItem::linkToCrud('Réponses', 'fa fa-box-archive', Answer::class);
+        // yield MenuItem::linkToCrud('Réponses', 'fa fa-box-archive', User::class);
     }
 }

@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 
 
 class CategoryCrudController extends AbstractCrudController
@@ -21,6 +22,7 @@ class CategoryCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             TextEditorField::new('description'),
+            ColorField::new('color')
         ];
     }
 }
