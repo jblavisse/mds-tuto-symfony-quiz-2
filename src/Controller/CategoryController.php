@@ -10,11 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Category;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ColorType;
-
+use App\Form\CategoryType;
 
 class CategoryController extends AbstractController
 {
@@ -52,12 +48,7 @@ class CategoryController extends AbstractController
         $category->setColor('#888888');
 
 
-        $form = $this->createFormBuilder($category)
-        ->add('title',TextType::class)
-        ->add('description', TextareaType::class)
-        ->add('color', ColorType::class)
-        ->add('Enregistrer', SubmitType::class)
-        ->getForm();
+        $form = $this->createForm(CategoryType::class,$category);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
