@@ -8,9 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\Review;
-
+use Symfony\Component\HttpFoundation\Request;
 
 class ReviewController extends AbstractController
 {
@@ -23,14 +24,21 @@ class ReviewController extends AbstractController
     }
 
     #[Route('/reviews/new', name: 'app_review_add')]
-    public function add(): Response
+    public function add(Request $request): Response
     {
         $review = new Review();
 
         $form = $this->createFormBuilder($review)
         ->add('pseudo',TextType::class)
         ->add('content',TextareaType::class)
+        ->add('Enregistrer', SubmitType::class)
         ->getForm();
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $review=$form->getData();
+            var_dump($review);
+        }
 
         return $this->render('review/new.html.twig', [
             'form' => $form
